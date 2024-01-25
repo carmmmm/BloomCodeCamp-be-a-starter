@@ -1,25 +1,20 @@
 version: '3'
 
 services:
-  pgdb:
-    image: postgres
-    container_name: pg_server_api0121
+  dev-db:
+    image: postgres:13
+    container_name: dev-db
     ports:
-      - '5550:5432'
+      - '5050:5432'
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=api-starter-0121
-    volumes:
-      - ./docker/pg/postgres.conf:/etc/postgresql/postgresql.conf
-      - ./data/pg:/var/lib/postgresql/data
-    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: dev-db
     networks:
       - postgres
-    restart: always
 
-  pgadminFp:
-    container_name: pgadmin_0121
+  pgadmin-dev:
+    container_name: pgadmin-dev
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}

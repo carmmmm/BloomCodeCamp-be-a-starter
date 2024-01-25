@@ -1,12 +1,12 @@
 {
   "Servers": {
     "1": {
-      "Name": "api-starter-0121",
+      "Name": "dev-db",
       "Group": "Dev",
       "Port": 5432,
       "Username": "docker",
       "Password": "docker",
-      "Host": "pgFP-api-starter",
+      "Host": "dev-db",
       "SSLMode": "prefer",
       "MaintenanceDB": "postgres"
     }
